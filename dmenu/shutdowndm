@@ -1,0 +1,26 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple shutdown menu using dmenu
+
+choise=$(echo -e "Shutdown\nReboot\nLogout\nSuspend" | dmenu -i -l 20)
+
+if test "$choise" = "Shutdown"; then
+	confirm=$(echo -e "Yes\nNo" | dmenu -i -l 20 -p "Are sure you want to shutdown")
+	if test "$confirm" = "Yes"; then
+		systemctl poweroff -i
+	else
+		exit
+	fi
+elif test "$choise" = "Logout"; then
+	echo "Loging out"
+	kill -9 -1
+elif test "$choise" = "Reboot"; then
+	systemctl reboot
+elif test "$choise" = "Suspend"; then
+	systemctl suspend
+fi
