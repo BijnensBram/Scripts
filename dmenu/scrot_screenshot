@@ -1,0 +1,23 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple menu using dmenu for scrot
+
+choise=$(echo -e "Fullscreen\nSelect region\nSelected tab\nMulti monitor" | dmenu -i -l 20)
+
+# the sleep is to prevent dmenu to show up on screenshot
+if test "$choise" = "Fullscreen"; then
+	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
+elif test "$choise" = "Select region"; then
+	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -s -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
+elif test "$choise" = "Selected tab"; then
+	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -u -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
+elif test "$choise" = "Multi monitor"; then
+	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -m -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
+fi
+
+notify-send "Scrot" "Screenshot is saved to ~/Pictures/Screenshots" --icon=screenshot 
