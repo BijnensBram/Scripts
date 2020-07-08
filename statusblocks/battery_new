@@ -1,0 +1,28 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple script to add the battery percentage to the bar
+
+battery=/sys/class/power_supply/BAT0
+capacity=$(cat "$battery"/capacity) || exit
+stat=$(cat "$battery"/status)
+
+if [[ $stat == "Charging" ]]; then
+	status=""
+elif [[ $stat == "Full" ]]; then
+	status=""
+elif [[ $capacity -le 25 ]]; then
+	status=" [=   ]"
+elif [[ $capacity -le 50 ]]; then
+	status=" [==  ]"
+elif [[ $capacity -le 75 ]]; then
+	status=" [=== ]"
+else
+	status=" [====]"
+fi
+
+echo $status$capacity"%"

@@ -1,0 +1,14 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple script to add the average core temp to the bar
+
+temp1=$(sensors | awk '/Core 0/ {print $3}' | tr -d '+*.*°C')
+temp2=$(sensors | awk '/Core 1/ {print $3}' | tr -d '+*.*°C')
+gem=$(( ($temp1 + $temp2)/20 ))
+
+echo 🌡$gem°C

@@ -1,0 +1,11 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple script to add the brightness to the bar
+
+brightness=$(xbacklight -get)
+echo ☀${brightness%.*}"%"
