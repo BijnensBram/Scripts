@@ -1,0 +1,13 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple menu to choose volume source using dmenu
+
+options=$(pamixer --list-sources | sed '1d;2d')
+choise=$(echo -e $options | dmenu -i -l 20 | awk '{print $1}')
+
+pamixer --source $choise
