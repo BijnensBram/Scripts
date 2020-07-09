@@ -1,4 +1,11 @@
 #!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# autostart script to run application on startup
 
 sxhkd &
 $HOME/.config/compton/launch.sh &
