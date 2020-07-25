@@ -16,13 +16,13 @@ if [[ $stat == "Charging" ]]; then
 elif [[ $stat == "Full" ]]; then
 	status=""
 elif [[ $capacity -le 25 ]]; then
-	status=" [=   ]"
+	status=""
 elif [[ $capacity -le 50 ]]; then
-	status=" [==  ]"
+	status=""
 elif [[ $capacity -le 75 ]]; then
-	status=" [=== ]"
+	status=""
 else
-	status=" [====]"
+	status=""
 fi
 
 echo $status$capacity"%"

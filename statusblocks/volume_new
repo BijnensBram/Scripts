@@ -7,9 +7,10 @@
 #
 # simple script to add the volume to the bar
 
+status=$(pamixer --get-mute)
 volume=$(pamixer --get-volume)
 
-if [[ $volume -le 1 ]]; then
+if [[ $status == 'true' ]]; then
 	icon="🔇"
 	echo $icon
 else
