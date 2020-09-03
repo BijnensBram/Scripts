@@ -10,7 +10,7 @@
 choise=$(echo -e "Shutdown\nReboot\nLogout\nSuspend" | dmenu -i -l 4)
 
 if test "$choise" = "Shutdown"; then
-	confirm=$(echo -e "Yes\nNo" | dmenu -i -l 20 -p "Are sure you want to shutdown")
+	confirm=$(echo -e "Yes\nNo" | dmenu -i -l 2 -p "Are sure you want to shutdown")
 	if test "$confirm" = "Yes"; then
 		systemctl poweroff -i
 	else

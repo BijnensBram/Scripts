@@ -10,6 +10,6 @@
 options=$(ls -1 ~/Scripts/dmenu)
 path="~/Scripts/dmenu/"
 
-choise=$(echo -e "$options" | dmenu -i -l 20) # using "$options" instead of $options to get multi line
+choise=$(echo -e "$options" | dmenu -i -l 5) # using "$options" instead of $options to get multi line
 
 exec $path$choise
