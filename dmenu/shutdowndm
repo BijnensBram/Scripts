@@ -7,7 +7,7 @@
 #             
 # simple shutdown menu using dmenu
 
-choise=$(echo -e "Shutdown\nReboot\nLogout\nSuspend" | dmenu -i -l 20)
+choise=$(echo -e "Shutdown\nReboot\nLogout\nSuspend" | dmenu -i -l 4)
 
 if test "$choise" = "Shutdown"; then
 	confirm=$(echo -e "Yes\nNo" | dmenu -i -l 20 -p "Are sure you want to shutdown")

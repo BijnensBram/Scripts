@@ -7,7 +7,7 @@
 #             
 # simple menu using dmenu for scrot
 
-choise=$(echo -e "Fullscreen\nSelect region\nSelected tab\nMulti monitor" | dmenu -i -l 20)
+choise=$(echo -e "Fullscreen\nSelect region\nSelected tab\nMulti monitor" | dmenu -i -l 4)
 
 # the sleep is to prevent dmenu to show up on screenshot
 if test "$choise" = "Fullscreen"; then
