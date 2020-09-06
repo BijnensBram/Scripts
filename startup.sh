@@ -8,7 +8,7 @@
 # autostart script to run application on startup
 
 sxhkd &
-$HOME/.config/compton/launch.sh &
+picom $HOME/.config/picom.conf &
 $HOME/.config/polybar/launch.sh &
 $HOME/Scripts/randwallpaper.sh &
 nm-applet &

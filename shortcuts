@@ -7,9 +7,9 @@
 #             
 # simple shortcut menu using dmenu
 
-options="Restart polybar\nRefresh wallpaper\nToggle compton"
+options="Restart polybar\nRefresh wallpaper\nToggle compton\nScreen settings"
 
-choise=$(echo -e "$options" | dmenu -i -l 20) # using "$options" instead of $options to get multi line
+choise=$(echo -e "$options" | dmenu -i -l 4) # using "$options" instead of $options to get multi line
 
 if test "$choise" = "Restart polybar"; then
 	$HOME/.config/polybar/launch.sh
@@ -17,4 +17,6 @@ elif test "$choise" = "Refresh wallpaper"; then
 	$HOME/Scripts/randwallpaper.sh
 elif test "$choise" = "Toggle compton"; then
 	$HOME/.config/compton/toggle.sh
+elif test "$choise" = "Screen settings"; then
+	lxrandr
 fi

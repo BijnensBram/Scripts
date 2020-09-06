@@ -18,6 +18,8 @@ elif test "$choise" = "Selected tab"; then
 	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -u -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
 elif test "$choise" = "Multi monitor"; then
 	sleep 0.2 ; scrot '%Y-%m-%d-%H-%M-%S.png' -z -m -e 'mv ~/$f ~/Pictures/Screenshots/ && xclip -selection clipboard -target image/png -i ~/Pictures/Screenshots/$f'
+else 
+	exit
 fi
 
 notify-send "Scrot" "Screenshot is saved to ~/Pictures/Screenshots" --icon=screenshot 
