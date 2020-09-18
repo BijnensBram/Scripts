@@ -5,6 +5,6 @@
 #| |_) | |_) |
 #|____/|____/ 
 #             
-# simple script to add some pacman info to the bar
+# simple script to add some package info to the bar
 
-echo 📥$(pacman -Qu | wc -l): 📦$(pacman -Q | wc -l)
+echo 📥$(yay -Qu | wc -l): 📦$(yay -Q | wc -l)

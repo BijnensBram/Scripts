@@ -7,9 +7,15 @@
 #             
 # simple shortcut menu using dmenu
 
-options="Restart polybar\nRefresh wallpaper\nToggle compton\nScreen settings"
+options1="Reset i3 screens\nRestart polybar\nRefresh wallpaper\nToggle compton\nScreen settings"
+options2=$(ls -1 ~/Scripts/dmenu)
 
-choise=$(echo -e "$options" | dmenu -i -l 4) # using "$options" instead of $options to get multi line
+options="$options1$options2"
+
+path="~/Scripts/dmenu/"
+
+
+choise=$(echo -e "$options" | dmenu -i -l 8) # using "$options" instead of $options to get multi line
 
 if test "$choise" = "Restart polybar"; then
 	$HOME/.config/polybar/launch.sh
@@ -19,4 +25,8 @@ elif test "$choise" = "Toggle compton"; then
 	$HOME/.config/compton/toggle.sh
 elif test "$choise" = "Screen settings"; then
 	lxrandr
+elif test "$choise" = "Reset i3 screens"; then
+	i3-workscreen && $HOME/.config/polybar/launch.sh
+else;
+	exec $path$choise
 fi
