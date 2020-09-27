@@ -26,7 +26,7 @@ elif test "$choise" = "Toggle compton"; then
 elif test "$choise" = "Screen settings"; then
 	lxrandr
 elif test "$choise" = "Reset i3 screens"; then
-	i3-workscreen && $HOME/.config/polybar/launch.sh
-else;
+	i3-workscreen
+else
 	exec $path$choise
 fi
