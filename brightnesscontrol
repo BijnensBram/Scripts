@@ -1,0 +1,4 @@
+#!/bin/bash
+
+blight set $1
+pkill -SIGRTMIN+12 waybar

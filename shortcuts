@@ -10,7 +10,7 @@
 options1="Reset i3 screens\nRestart polybar\nRefresh wallpaper\nToggle compton\nScreen settings"
 options2=$(ls -1 ~/Scripts/dmenu)
 
-options="$options1$options2"
+options="$options2\n$options1"
 
 path="~/Scripts/dmenu/"
 

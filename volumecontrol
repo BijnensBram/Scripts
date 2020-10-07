@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SINK=$(pacmd list-sinks | grep "index:" | grep '*' | awk '{print $3}')
+
+if [ "$SINK" == "" ]; then
+	SINK="0"
+fi
+
+if [ "$1" != "T" ]; then
+	pactl set-sink-volume "$SINK" "$1"
+	current=$(pamixer --get-volume)
+	echo $current
+	if [ $current -gt 100 ];then
+		echo "you stupid"
+		pactl set-sink-volume "$SINK" 100%
+	fi
+else
+	pactl set-sink-mute "$SINK" toggle
+fi
+
+pkill -SIGRTMIN+11 waybar

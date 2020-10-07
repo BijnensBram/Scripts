@@ -11,9 +11,9 @@ status=$(pamixer --get-mute)
 volume=$(pamixer --get-volume)
 
 if [[ $status == 'true' ]]; then
-	icon="🔇"
+	icon="🔇 "
 	echo $icon
 else
 	icon="🔊"
-	echo $icon$volume"%"
+	echo $icon$volume"% "
 fi

@@ -25,4 +25,4 @@ else
 	status=""
 fi
 
-echo $status$capacity"%"
+echo $status$capacity"% "

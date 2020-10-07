@@ -1,0 +1,12 @@
+#!/bin/sh
+# ____  ____  
+#| __ )| __ ) 
+#|  _ \|  _ \ 
+#| |_) | |_) |
+#|____/|____/ 
+#             
+# simple script to add the brightness to the bar
+
+brightness=$(blight get)
+percent=$(( brightness / 75 ))
+echo  ☀${percent%.*}"% "
